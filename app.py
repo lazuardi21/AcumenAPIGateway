@@ -26,6 +26,7 @@ def create_app(config_name=None):
     cfg = config_map.get(config_name, config_map['production'])
 
     app = Flask(__name__)
+    app.url_map.strict_slashes = False
     app.config.from_object(cfg)
 
     # CORS
